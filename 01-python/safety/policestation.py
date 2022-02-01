@@ -1,7 +1,7 @@
 from PIL import Image, ImageDraw
 import PySimpleGUI as PySimpleGUI
 from PIL import Image
-import as
+import os
 import tkinter
 import io
 
