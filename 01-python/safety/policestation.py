@@ -1,5 +1,5 @@
 from PIL import Image, ImageDraw
-import PySimpleGUI as PySimpleGUI
+import PySimpleGUI as sg
 from PIL import Image
 import os
 import tkinter
