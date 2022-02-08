@@ -7,4 +7,6 @@ def read_csv(csv_file_path):
     """
     file = open(csv_file_path)
     numpy_array = np.loadtxt(file, delimiter=",", order = 'C')
-    return data
+    print(numpy_array)
+    return numpy_array
+
