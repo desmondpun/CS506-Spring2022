@@ -2,7 +2,6 @@ Metadata-Version: 2.1
 Name: cs506
 Version: 0.0.1
 Summary: Run some cs506 algorithms
-Home-page: UNKNOWN
 License: Apache License 2.0
 Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3.6

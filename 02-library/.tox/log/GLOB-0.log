@@ -1,16 +1,14 @@
 action: GLOB, msg: packaging
 cwd: /Users/desmondpun/Desktop/CS506/lab3/CS506-Spring2022/02-library
-cmd: /Library/Frameworks/Python.framework/Versions/3.10/bin/python3 setup.py sdist --formats=zip --dist-dir /Users/desmondpun/Desktop/CS506/lab3/CS506-Spring2022/02-library/.tox/dist
+cmd: /Library/Frameworks/Python.framework/Versions/3.10/bin/python3 setup.py sdist --formats=zip --dist-dir .tox/dist
 WARNING: The wheel package is not available.
 running sdist
 running egg_info
-creating cs506.egg-info
 writing cs506.egg-info/PKG-INFO
 writing dependency_links to cs506.egg-info/dependency_links.txt
 writing entry points to cs506.egg-info/entry_points.txt
 writing requirements to cs506.egg-info/requires.txt
 writing top-level names to cs506.egg-info/top_level.txt
-writing manifest file 'cs506.egg-info/SOURCES.txt'
 reading manifest file 'cs506.egg-info/SOURCES.txt'
 writing manifest file 'cs506.egg-info/SOURCES.txt'
 running check
@@ -37,8 +35,7 @@ copying cs506.egg-info/entry_points.txt -> cs506-0.0.1/cs506.egg-info
 copying cs506.egg-info/requires.txt -> cs506-0.0.1/cs506.egg-info
 copying cs506.egg-info/top_level.txt -> cs506-0.0.1/cs506.egg-info
 Writing cs506-0.0.1/setup.cfg
-creating /Users/desmondpun/Desktop/CS506/lab3/CS506-Spring2022/02-library/.tox/dist
-creating '/Users/desmondpun/Desktop/CS506/lab3/CS506-Spring2022/02-library/.tox/dist/cs506-0.0.1.zip' and adding 'cs506-0.0.1' to it
+creating '.tox/dist/cs506-0.0.1.zip' and adding 'cs506-0.0.1' to it
 adding 'cs506-0.0.1'
 adding 'cs506-0.0.1/cs506'
 adding 'cs506-0.0.1/cs506.egg-info'
