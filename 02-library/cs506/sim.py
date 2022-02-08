@@ -14,7 +14,7 @@ def manhattan_dist(x, y):
 def jaccard_dist(x, y):
     nom = A.intersection(B)
     den = A.union(B)
-    dist = 1- (len(nom)/len(den))
+    dist = (len(nom)/len(den))
     return dist
 
 def cosine_sim(x, y):
