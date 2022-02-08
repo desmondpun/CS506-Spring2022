@@ -1,3 +1,4 @@
+from scipy import spatial
 def euclidean_dist(x, y):
     res = 0
     for i in range(len(x)):
@@ -17,6 +18,5 @@ def jaccard_dist(x, y):
     return dist
 
 def cosine_sim(x, y):
-    raise NotImplementedError()
-
+    return 1-spatial.distance.cosine(x, y)
 # Feel free to add more
