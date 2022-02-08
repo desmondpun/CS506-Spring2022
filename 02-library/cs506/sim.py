@@ -11,7 +11,10 @@ def manhattan_dist(x, y):
     return res
 
 def jaccard_dist(x, y):
-    raise NotImplementedError()
+    nom = A.intersection(B)
+    den = A.union(B)
+    dist = 1- (len(nom)/len(den))
+    return dist
 
 def cosine_sim(x, y):
     raise NotImplementedError()
