@@ -6,7 +6,6 @@ def read_csv(csv_file_path):
         in row major.
     """
     file = open(csv_file_path)
-    numpy_array = np.loadtxt(file, delimiter=",", order = 'C')
-    print(numpy_array)
-    return numpy_array
+    numpy_array = np.loadtxt(file, delimiter=",")
+    return [item for sublist in numpy_array for item in sublist]
 

@@ -7,6 +7,8 @@ tests_require = [
   'pytest',
   'pytest-cov',
   'testfixtures',
+  'pandas',
+  'scipy'
 ]
 
 setup(

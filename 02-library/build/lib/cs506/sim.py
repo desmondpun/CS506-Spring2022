@@ -12,9 +12,9 @@ def manhattan_dist(x, y):
     return res
 
 def jaccard_dist(x, y):
-    nom = A.intersection(B)
+    nom = A.symmetric_difference(B)
     den = A.union(B)
-    dist = 1- (len(nom)/len(den))
+    dist = (len(nom)/len(den))
     return dist
 
 def cosine_sim(x, y):
