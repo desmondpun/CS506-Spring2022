@@ -1,3 +1,5 @@
+from .sim import euclidean_dist
+
 class DBC():
 
     def __init__(self, dataset, min_pts, epsilon):
@@ -5,13 +7,38 @@ class DBC():
         self.min_pts = min_pts
         self.epsilon = epsilon
 
+    def snapshot(self, assignments):
+        fig, ax = plt.subplots()
+        colors = np.array([x for x in 'bgrcmykbgrcmykbgrcmykbgrcmyk'])
+        ax.scatter(self.dataset[:, 0], self.dataset[:, 1], color=colors[assignments].tolist())
+        cir=plt.Circle(self.da)
+        ax.set_aspect('equal', adjustable='datalim')
+        fig.savefig("temp.png")
+        plt.close()
+
 
     def epsilon_neighborhood(P):
         #Add code here
-        return []
+        neighborhood = []
+        for PN in range(len(self.dataset)):
+            if euclidean_dist(self.dataset[PN], self.dataset[P]) <= self.epsilon:
+                neighborhood.append(PN)
+        return neighborhood
 
     def explore_and_assign_eps_neighborhood(P, cluster, assignments):
         #Add code here
+        neighborhood = self.epsilon_neighborhood(P)
+        while neighborhood:
+            neighbor_of_P = neighborhood.pop()
+            if assignments[neighbor_of_P] != 0:
+                continue
+            assignment[neighbor_of_P] = cluster
+
+            next_neighborhood = self.epsilon_neighborhood(neighbor_of_P)
+            if len(next_neighborhood) >= self.min_pts:
+                # this is a cor point
+                # its neighbors should be explored / assigned also
+                neighborhood.extend(next_neighborhood)
         return assignments
 
     def dbscan(self):
