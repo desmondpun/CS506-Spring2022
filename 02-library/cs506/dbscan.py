@@ -31,9 +31,9 @@ class DBC():
                 continue
             if len(self.epsilon_neighborhood(P)) >= self.min_pts:
                 #core point
-                self.explore_and_assign_eps_neighborhodd(P, cluster, assignments)
-            else:
-                #border or noise
+                assignments = self.explore_and_assign_eps_neighborhodd(P, cluster, assignments)
+            # else:
+            #     #border or noise
             
             cluster += 1
         return assignments
