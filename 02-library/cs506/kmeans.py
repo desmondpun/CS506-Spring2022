@@ -1,7 +1,10 @@
 from collections import defaultdict
 from math import inf
+from dis import dis
+from sklearn import datasetsfrom.sim import euclidean_dist
 import random
 import csv
+import numpy as np
 
 
 def point_avg(points):
@@ -11,7 +14,8 @@ def point_avg(points):
     
     Returns a new point which is the center of all the points.
     """
-    raise NotImplementedError()
+    average = [sum(x)/len(x) for x in zip(*points)]
+    return average
 
 
 def update_centers(dataset, assignments):
@@ -21,7 +25,16 @@ def update_centers(dataset, assignments):
     Compute the center for each of the assigned groups.
     Return `k` centers in a list
     """
-    raise NotImplementedError()
+    centers = []
+    clusters = np.unique(assignments)
+    for assign in clusters:
+        data = []
+        for i in range(len(dataset)):
+            if assignments[i] == assign :
+                data.append(dataset[i])
+        centroid = point_avg(data)
+        centers.append(centroid)
+    return np.array(centers)
 
 def assign_points(data_points, centers):
     """
@@ -43,20 +56,25 @@ def distance(a, b):
     """
     Returns the Euclidean distance between a and b
     """
-    raise NotImplementedError()
+    return euclidean_dist(a,b)
 
 def distance_squared(a, b):
-    raise NotImplementedError()
+    return (distance(a,b)**2) 
 
 def generate_k(dataset, k):
     """
     Given `data_set`, which is an array of arrays,
     return a random set of k points from the data_set
     """
-    raise NotImplementedError()
+    return np.random.choice(dataset, k)
 
 def cost_function(clustering):
-    raise NotImplementedError()
+    assignment = list(clustering)
+    cost = 0
+    for i in range(len(assignment)):
+        cluster = assignment[i]
+        cost += point_avg(cluster)
+    return cost
 
 
 def generate_k_pp(dataset, k):
@@ -66,7 +84,22 @@ def generate_k_pp(dataset, k):
     where points are picked with a probability proportional
     to their distance as per kmeans pp
     """
-    raise NotImplementedError()
+    kpp = []
+    for i in range(len(dataset)):
+        point = dataset[i]
+        cent_pt = 0
+        for j in range(len(dataset)):
+            dist = point - dataset[j]
+            cent_pt += np.linalg.norm(dist)
+        kpp.append(dist)
+    kpp = (pp - np.min(kpp)) / (np.min(kpp) - np.max(kpp))
+
+    k_cent = []
+    for i inrange(k):
+        idx = np.argmax(kpp)
+        k_cent.append(dataset[idx])
+        kpp[idx] = np.min(kpp)
+    return k_cent
 
 
 def _do_lloyds_algo(dataset, k_points):
